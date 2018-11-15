@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>red-envelope</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      (function (window, document) {
+        var setRem = function () {
+          var innerWidth = document.documentElement.getBoundingClientRect().width || window.innerWidth;
+          if (innerWidth > 768) {
+            document.documentElement.style.fontSize = 48 + 'px';
+          } else {
+            document.documentElement.style.fontSize = innerWidth / 15 + 'px';
+          }
+        };
+        window.addEventListener('orientationchange' in window ? 'orientationchange' : 'resize', setRem, false);
+        setRem();
+      })(window, document);
+    </script>
   </head>
   <body>
     <noscript>
